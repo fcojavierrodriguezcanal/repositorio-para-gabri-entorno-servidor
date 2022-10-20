@@ -1,0 +1,24 @@
+{
+  "name": "my-first-little-proyect",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Javi",
+  "license": "ISC",
+  "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "chalk": "^5.1.2",
+    "chalk-animation": "^2.0.3",
+    "chalk-rainbow": "^1.0.0",
+    "colors": "^1.4.0",
+    "luxon": "^3.0.4",
+    "moment": "^2.29.4",
+    "ora": "^6.1.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}

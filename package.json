@@ -1,0 +1,23 @@
+{
+  "name": "repositorio-para-gabri-entorno-servidor",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fcojavierrodriguezcanal/repositorio-para-gabri-entorno-servidor.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fcojavierrodriguezcanal/repositorio-para-gabri-entorno-servidor/issues"
+  },
+  "homepage": "https://github.com/fcojavierrodriguezcanal/repositorio-para-gabri-entorno-servidor#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.10"
+  }
+}
