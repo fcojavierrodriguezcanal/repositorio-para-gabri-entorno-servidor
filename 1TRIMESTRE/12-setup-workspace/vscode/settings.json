@@ -1,0 +1,11 @@
+{
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true,
+    },
+    "editor.rulers": [
+        99,
+        100,
+    ],
+    // "editor.minimap.enabled": false,
+    "terminal.integrated.tabs.title": "${cwdFolder}",
+}
