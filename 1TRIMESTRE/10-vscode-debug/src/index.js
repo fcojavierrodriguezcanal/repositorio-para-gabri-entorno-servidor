@@ -1,0 +1,1 @@
+var app = import('./appconeslint.js');

@@ -1,0 +1,31 @@
+{
+    "name":"09-npm-script",
+    "version":"1.0.0",
+    "description":"",
+    "type":"module",
+    "main":"index.js",
+    "scripts":{
+       "test":"echo \"Error: no test specified\" && exit 1",
+       "start":"node index.js",
+       "dev":"nodemon index.js",
+       "clear:modules":"rimraf **/node_modules",
+       "clear:locks":"rimraf **/package-lock.json",
+       "clear":"npm run clear:test && npm run clear:locks && npm run",
+       "clear:env":"rimraf **/.env",
+       "copy:env":"for d in workspaces/*; do cp ${d}/.env.template ${d}/.env; done",
+       "date":"node ./src/date.js",
+       "create":"node ./src/create.js",
+       "create:js":"node ./src/createJS.js",
+       "create:dir":"node ./src/createDIR.js",
+       "delete":"node ./src/deleteDIR.js",
+       "delete:js":"node ./src/deleteJS.js",
+       "imprime:azul":"node ./src/blue.js",
+       "imprime:red":"node ./src/red.js",
+       "imprime:verde":"node ./src/green.js"
+    },
+    "author":"",
+    "license":"ISC",
+    "dependencies":{
+       "chalk":"^5.1.2"
+    }
+ }
