@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <style>
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      color: purple;
+      margin-bottom: 2em;
+      animation: mianimacion;
+      animation-iteration-count: infinite;
+    }
+
+    @keyframes mianimacion {
+      0% {
+        text-shadow: none;
+      }
+
+      50% {
+        text-shadow: 0.1em 0.1em 0.05em purple;
+      }
+
+      100% {
+        text-shadow: none;
+      }
+    }
+
+    table {
+      border-collapse: separate;
+      border-spacing: 15px;
+
+    }
+
+    td {
+      border-color: purple;
+      border-radius: 20px;
+      color: purple;
+    }
+
+    #jug1 {
+      margin-right: 30 px;
+    }
+
+    img {
+      border-radius: 20px;
+    }
+
+    table {
+      position: relative;
+      margin: auto;
+    }
+  </style>
+
+</head>
+<header>
+  <h1>Juego del 3 en Raya</h1>
+</header>
+
+<body>
+
+  <table border="0">
+
+
+    <tr>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c0" onclick="box(0)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c1" onclick="box(1)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c2" onclick="box(2)" /></td>
+    </tr>
+
+    <tr>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c3" onclick="box(3)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c4" onclick="box(4)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c5" onclick="box(5)" /></td>
+    </tr>
+
+    <tr>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c6" onclick="box(6)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c7" onclick="box(7)" /></td>
+      <td style="border-style:solid; border-radius: 20px;"><img
+          src="https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000" width="125"
+          Height="125" id="c8" onclick="box(8)" /></td>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th>Jugador 1</th>
+      <td></td>
+      <th>Jugador 2</th>
+    </tr>
+
+    <tr>
+      <td><img src="https://media.tenor.com/OdB60pI5DO4AAAAM/letter-x.gif" width="80" Height="100" /></td>
+
+      <td><input type="button" value="Reiniciar Partida" id="reset" onclick="reiniciar()" onmouseout="suelta()" /></td>
+
+      <td><img src="https://media.tenor.com/dkCwZF-ltCQAAAAj/dancing-letter-letter.gif" width="80" Height="100" /></td>
+    </tr>
+    <tr>
+      <td id="jug1">victorias del jugador 1: </td>
+      <td id="empate">Empates totales: </td>
+      <td id="jug2">victorias del jugador 2: </td>
+    </tr>
+
+  </table>
+
+  <br />
+
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+  var img = 'https://media.tenor.com/OdB60pI5DO4AAAAM/letter-x.gif';
+  var turno = 1;
+  var posiciontabla = new Array();
+  var jug1 = 0;
+  var jug2 = 0;
+  var victoriasjug1 = 0;
+  var victoriasjug2 = 0;
+  var empate = 0;
+  for (i = 0; i <= 8; i++) {
+    
+    posiciontabla[i] = -1;
+    
+  }
+
+
+  function box(pos) {
+
+    if (posiciontabla[pos] == -1) {
+
+      if (turno == 1) {
+        if (img == 'https://media.tenor.com/OdB60pI5DO4AAAAM/letter-x.gif') { // TURNO CON LA X //
+          document.getElementById('c' + pos).src = img;
+          posiciontabla[pos] = 1;
+          gestionTurno();
+          turno = 2;
+          img = 'https://media.tenor.com/dkCwZF-ltCQAAAAj/dancing-letter-letter.gif';
+        }
+
+      } else if (turno == 2) {
+        if (img == 'https://media.tenor.com/dkCwZF-ltCQAAAAj/dancing-letter-letter.gif') {
+          document.getElementById('c' + pos).src = img;
+          posiciontabla[pos] = 0;
+          gestionTurno();
+          turno = 1;
+          img = 'https://media.tenor.com/OdB60pI5DO4AAAAM/letter-x.gif';
+        }
+
+
+
+      }
+
+    }
+     else { alert('Esta posicion ya esta ocupada!'); }
+
+     function gestionTurno(){
+    if (posiciontabla[0] == 1 && posiciontabla[1] == 1 && posiciontabla[2] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[0] == 0 && posiciontabla[1] == 0 && posiciontabla[2] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+
+      reiniciar();
+    }
+else
+    if (posiciontabla[3] == 1 && posiciontabla[4] == 1 && posiciontabla[5] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[3] == 0 && posiciontabla[4] == 0 && posiciontabla[5] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[6] == 1 && posiciontabla[7] == 1 && posiciontabla[8] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[6] == 0 && posiciontabla[7] == 0 && posiciontabla[8] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[0] == 1 && posiciontabla[3] == 1 && posiciontabla[6] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[0] == 0 && posiciontabla[3] == 0 && posiciontabla[6] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[1] == 1 && posiciontabla[4] == 1 && posiciontabla[7] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[1] == 0 && posiciontabla[4] == 0 && posiciontabla[7] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[2] == 1 && posiciontabla[5] == 1 && posiciontabla[8] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[2] == 0 && posiciontabla[5] == 0 && posiciontabla[8] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[0] == 1 && posiciontabla[4] == 1 && posiciontabla[8] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[0] == 0 && posiciontabla[4] == 0 && posiciontabla[8] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[2] == 1 && posiciontabla[4] == 1 && posiciontabla[6] == 1) {
+      alert('gano X');
+      jug1 = jug1 + 1;
+      document.getElementById("jug1").innerHTML = `victorias del jugador 1: ${jug1}`;
+      reiniciar();
+    }
+else
+    if (posiciontabla[2] == 0 && posiciontabla[4] == 0 && posiciontabla[6] == 0) {
+      alert('gano O');
+      jug2 = jug2 + 1;
+      document.getElementById("jug2").innerHTML = `victorias del jugador 2: ${jug2}`;
+      reiniciar();
+    } else if (posiciontabla[0] != -1 && posiciontabla[1] != -1 && posiciontabla[2] != -1 && posiciontabla[3] != -1 
+    && posiciontabla[4] != -1 && posiciontabla[5] != -1 && posiciontabla[6] != -1 && posiciontabla[7] != -1 && posiciontabla[8] != -1){
+      alert('empataste wey');
+      empate = empate + 1;
+      document.getElementById("empate").innerHTML = `empates totales: ${empate}`;
+      reiniciar();
+    }
+   
+
+
+   
+    
+  }}
+
+
+
+
+
+  function reiniciar() {
+
+    document.getElementById('reset');
+
+    for (i = 0; i <= 8; i++) {
+      document.getElementById('c' + i).src = "https://img.freepik.com/vector-gratis/fondo-abstracto-blanco_23-2148833155.jpg?w=2000";
+    }
+
+
+    for (i = 0; i <= 8; i++) {
+      posiciontabla[i] = -1;
+    }
+
+  }
+
+</script>
