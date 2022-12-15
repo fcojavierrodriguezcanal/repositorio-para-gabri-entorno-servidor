@@ -9,5 +9,7 @@ if (err) {
  logger.error(err);
  return;
  }
- logger.info(`App listening on port ${port}!`);
+ logger.info(`App listening on port ${3000}!`);
  });
+
+ app.listen(3000)
