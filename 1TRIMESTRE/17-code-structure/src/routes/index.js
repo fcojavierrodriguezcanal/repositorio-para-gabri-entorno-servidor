@@ -1,11 +1,13 @@
  const { Router } = require('express');
 
  const users = require('./users');
- const pingController = require('../controllers/ping');
+ const basicController = require('../controllers/basic');
 
- const router = Router();
+ const routes = Router();
+ const basicRoutes = Router();
 
- router.get('/ping', pingController.pong);
- router.use('/users', users);
+ basicRoutes.get('/ping', basicController.pong);
+ basicRoutes.get('/fibonacci', basicController.getFibinacciNumber);
+ routes.use('/users', users);
 
- module.exports = router;
+ module.exports = {routes, basicRoutes};
