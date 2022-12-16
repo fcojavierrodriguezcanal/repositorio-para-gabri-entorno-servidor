@@ -1,0 +1,29 @@
+
+# 2. Crear un editor de notas con Nodejs
+# • Tendrá un endpoint que permita:
+# 1. Crear nueva nota /POST
+# 2. Editar nota existente /PUT
+# 3. Eliminar nota /DELETE
+# 4. Obtener notas /GET
+# • Cada nota será un fichero de texto, con extensión .note // fs.writefile(.note)
+# • Para editar una nota, habrá que imprimir la lista de notas disponibles y seleccionar una
+
+# Crear nueva nota 
+# 2. Editar nota existente
+# 3. Eliminar nota 
+# 4. Obtener notas
+
+
+function crearNota(){
+  nota.post
+}
+function editarNota(){
+  nota.patch
+}
+function borrarNota(){
+  nota.delete
+  
+}
+function obtenerNotas(){
+ Listanotas.get
+}

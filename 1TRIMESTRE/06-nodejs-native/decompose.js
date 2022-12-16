@@ -5,3 +5,4 @@ function decomposeUrl(url) {
 
 }
 decomposeUrl("https://docs.google.com/");
+
